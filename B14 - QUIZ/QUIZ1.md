@@ -88,7 +88,7 @@
     c. docker service scale
     d. docker service inspect
 
-Voici les réponses aux questions fournies :
+# Voici les réponses aux questions fournies :
 
 1. a. Kubelet
 2. c. scheduler
