@@ -89,6 +89,9 @@ Pour valider que votre agent de journalisation fonctionne correctement:
 - [Documentation Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/index.html)
 - [Documentation Logstash](https://www.elastic.co/guide/en/logstash/current/index.html)
 
+# Références : 
+https://itnext.io/logging-in-kubernetes-a-guide-to-staying-sane-in-a-sea-of-data-88baf8f6faf
+
 ![image](https://github.com/hrhouma/kubernetes2/assets/10111526/199dc103-e490-4b93-984c-ccd1409f6bbf)
 
 ## Conclusion
