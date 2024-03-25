@@ -120,9 +120,9 @@ Si vous rencontrez des problèmes lors de l'installation ou de l'utilisation de 
 - [Problèmes avec les certificats SSL dans curl](https://stackoverflow.com/questions/24611640/curl-60-ssl-certificate-problem-unable-to-get-local-issuer-certificate)
 - [Erreurs lors de l'exécution de la version de kubectl](https://stackoverflow.com/questions/73866855/i-am-getting-an-error-while-running-kubectl-version-although-i-installed-it-by-f)
 
-```
 
-```
+
+```ssh
 cd Desktop/
 git clone https://github.com/hrhouma/install-docker.git
 apt install git
@@ -203,7 +203,7 @@ kubect get n
 kubectl get n
 kubectl get -n
 kubectl get namespaces
-
+```
   
   
 # Références pour troubleshooting : 
@@ -212,5 +212,5 @@ kubectl get namespaces
   https://stackoverflow.com/questions/24611640/curl-60-ssl-certificate-problem-unable-to-get-local-issuer-certificate
   https://stackoverflow.com/questions/73866855/i-am-getting-an-error-while-running-kubectl-version-although-i-installed-it-by-f
   
-```
+
 
