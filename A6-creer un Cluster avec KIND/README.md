@@ -112,7 +112,7 @@ Ce guide vous aidera à installer Docker et à configurer un cluster Kubernetes 
 - Mise à jour des paquets : `apt update`
 - Installation de curl : `apt install curl`
 
-### Références pour le dépannage
+# 4. Références pour le dépannage
 
 Si vous rencontrez des problèmes lors de l'installation ou de l'utilisation de Docker, Kind, ou kubectl, consultez les liens suivants pour obtenir de l'aide :
 
@@ -121,7 +121,7 @@ Si vous rencontrez des problèmes lors de l'installation ou de l'utilisation de 
 - [Erreurs lors de l'exécution de la version de kubectl](https://stackoverflow.com/questions/73866855/i-am-getting-an-error-while-running-kubectl-version-although-i-installed-it-by-f)
 
 
-
+# 5. Historique des commandes
 ```ssh
 cd Desktop/
 git clone https://github.com/hrhouma/install-docker.git
@@ -211,7 +211,7 @@ kubectl get namespaces
 - https://stackoverflow.com/questions/24611640/curl-60-ssl-certificate-problem-unable-to-get-local-issuer-certificate
 - https://stackoverflow.com/questions/73866855/i-am-getting-an-error-while-running-kubectl-version-although-i-installed-it-by-f
 
-# Annexes - Les contextes dans KIND
+# 6. Annexes - Les contextes dans KIND
 
 ## Création d'un fichier de configuration pour le premier cluster
 ```ssh
