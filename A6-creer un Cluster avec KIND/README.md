@@ -205,12 +205,11 @@ kubectl get -n
 kubectl get namespaces
 ```
   
-  
 # Références pour troubleshooting : 
  
-  https://kind.sigs.k8s.io/docs/user/quick-start
-  https://stackoverflow.com/questions/24611640/curl-60-ssl-certificate-problem-unable-to-get-local-issuer-certificate
-  https://stackoverflow.com/questions/73866855/i-am-getting-an-error-while-running-kubectl-version-although-i-installed-it-by-f
+- https://kind.sigs.k8s.io/docs/user/quick-start
+- https://stackoverflow.com/questions/24611640/curl-60-ssl-certificate-problem-unable-to-get-local-issuer-certificate
+- https://stackoverflow.com/questions/73866855/i-am-getting-an-error-while-running-kubectl-version-although-i-installed-it-by-f
   
 
 
