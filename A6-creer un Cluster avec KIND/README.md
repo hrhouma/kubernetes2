@@ -210,6 +210,69 @@ kubectl get namespaces
 - https://kind.sigs.k8s.io/docs/user/quick-start
 - https://stackoverflow.com/questions/24611640/curl-60-ssl-certificate-problem-unable-to-get-local-issuer-certificate
 - https://stackoverflow.com/questions/73866855/i-am-getting-an-error-while-running-kubectl-version-although-i-installed-it-by-f
+
+# Annexes - Les contextes dans KIND
+
+## Création d'un fichier de configuration pour le premier cluster
+```ssh
+cat <<EOT > kind-config-1.yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+- role: worker
+EOT
+```
+## Création du premier cluster avec une configuration spécifique
+```ssh
+kind create cluster --name kind-1 --config kind-config-1.yaml
+```
+## Création d'un fichier de configuration pour le second cluster
+```ssh
+cat <<EOT > kind-config-2.yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+- role: worker
+- role: worker
+EOT
+```
+## Création du second cluster avec la configuration spécifique
+```ssh
+kind create cluster --name kind-2 --config kind-config-2.yaml
+```
+## Affichage de tous les contextes disponibles pour vérification
+```ssh
+kubectl config get-contexts
+```
+## Basculer vers le contexte du premier cluster (kind-1) et vérifier les infos
+```ssh
+kubectl config use-context kind-kind-1
+kubectl cluster-info --context kind-kind-1
+```
+## Basculer vers le contexte du second cluster (kind-2) et vérifier les infos
+```ssh
+kubectl config use-context kind-kind-2
+kubectl cluster-info --context kind-kind-2
+```
+## À ce stade, vous pouvez exécuter des commandes kubectl spécifiques au cluster sélectionné,
+## comme la création de déploiements, services, etc.
+
+## Pour basculer à nouveau vers le contexte du premier cluster
+```ssh
+kubectl config use-context kind-kind-1
+```
+## Et pour revenir au second
+```ssh
+kubectl config use-context kind-kind-2
+```
+## Lorsque vous avez terminé, vous pouvez supprimer les clusters si souhaité
+```ssh
+kind delete cluster --name kind-1
+kind delete cluster --name kind-2
+```
+
   
 
 
