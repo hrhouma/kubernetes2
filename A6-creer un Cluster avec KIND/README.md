@@ -94,6 +94,18 @@ Ce guide vous aidera à installer Docker et à configurer un cluster Kubernetes 
 
 12. (Optionnel) Pour configurer un cluster avec un fichier de configuration spécifique :
 
+ ```bash
+nano kind-config.yaml
+ ```
+
+```yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+- role: worker
+- role: worker
+```
     ```bash
     kind create cluster --config kind-config.yaml
     ```
