@@ -1,6 +1,3 @@
-Voici la traduction de votre cours Kubernetes pour débutants en français, formaté en Markdown pour une utilisation comme README.md.
-
-```markdown
 # Kubernetes pour les Débutants
 
 **Date** : 7 décembre 2017  
