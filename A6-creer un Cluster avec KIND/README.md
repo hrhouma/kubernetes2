@@ -106,9 +106,10 @@ nodes:
 - role: worker
 - role: worker
 ```
-    ```bash
-    kind create cluster --config kind-config.yaml
-    ```
+
+```bash
+kind create cluster --config kind-config.yaml
+ ```
 
 13. Pour obtenir des informations sur le cluster :
 
