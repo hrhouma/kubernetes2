@@ -3,7 +3,8 @@
 **Date** : 7 décembre 2017  
 **Par** : @jpetazzo
 # Référence : 
-https://training.play-with-kubernetes.com/kubernetes-workshop/
+- https://training.play-with-kubernetes.com/kubernetes-workshop/
+
 **Durée estimée** : Environ 27 minutes
 
 Basé sur un atelier écrit à l'origine par Jérôme Petazzoni avec des contributions de nombreuses autres personnes.
