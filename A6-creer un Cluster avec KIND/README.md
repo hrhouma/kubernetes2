@@ -214,7 +214,6 @@ kubectl run nginx --image=nginx  -o yaml
 kubectl get po -o wide
 kubect get n
 kubectl get nodes
-kubectl get -n
 kubectl get namespaces
 ```
   
