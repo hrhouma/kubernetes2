@@ -1,6 +1,6 @@
 # Important
-- Ce read me ==> créer un cluster sur Ubuntu 22.04
-- Les fichiers words et pdfs ==>  créer un cluster sur AZURE
+- MÉTHODE 1 : Ce read me ==> créer un cluster sur Ubuntu 22.04
+- MÉTHODE 2 : Les fichiers words et pdfs ==>  créer un cluster sur AZURE
 
 # 1 Références : 
 - https://kind.sigs.k8s.io/
