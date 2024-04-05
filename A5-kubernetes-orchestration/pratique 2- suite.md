@@ -196,6 +196,82 @@ Kubernetes ne s'arrête pas là. Il peut également :
 
 ## Résumé des concepts #1 de Kubernetes
 
-Kubernetes offre une plateforme puissante et flexible pour la gestion de conteneurs, rendant possible le déploiement et la gestion d'applications à grande échelle de manière plus efficace. Grâce à ses capacités d'orchestration, de mise à l'échelle automatique, de déploiement progressif, et bien plus, Kubernetes est devenu un outil incontournable pour les développeurs et les administrateurs de systèmes cherchant à optimiser leurs infrastructures.
 
+
+# 3- L'Architecture de Kubernetes #1 (introduction)
+
+## Encore et encore un rappel Kubernetes
+
+Avant de plonger dans l'architecture de Kubernetes, comprenons ce qu'est Kubernetes. Kubernetes est un système open-source pour automatiser le déploiement, la mise à l'échelle et la gestion des applications conteneurisées. Il vous aide à gérer des applications complexes avec efficacité et flexibilité.
+
+## Architecture de Kubernetes
+
+L'architecture de Kubernetes est divisée en deux parties principales : le maître (master) et les nœuds (nodes).
+
+### Le Maître Kubernetes
+
+Le "maître" est le cerveau derrière l'opération de Kubernetes. Il prend des décisions globales sur le cluster (comme le lancement de nouveaux conteneurs) et détecte et répond aux événements du cluster (comme le crash d'un conteneur). Les composants clés du maître incluent :
+
+- **API Server :** Le point d'entrée dans Kubernetes, permettant la communication entre les différents services.
+- **Scheduler :** Décide sur quel nœud lancer les nouveaux conteneurs basés sur la disponibilité des ressources.
+- **Controller Manager :** Gère un ensemble de contrôleurs qui régulent l'état du cluster.
+- **etcd :** Un magasin clé/valeur hautement disponible qui stocke toutes les données du cluster, agissant comme la base de données de Kubernetes.
+
+Ces services peuvent s'exécuter directement sur une machine hôte ou dans des conteneurs. Il est possible d'avoir plusieurs maîtres pour une haute disponibilité.
+
+### Les Nœuds Kubernetes
+
+Les nœuds sont les machines (physiques ou virtuelles) qui exécutent vos applications et workloads Kubernetes. Chaque nœud contient les services nécessaires pour exécuter des conteneurs, notamment :
+
+- **Moteur de conteneur (Docker, par exemple) :** Pour exécuter les conteneurs.
+- **Kubelet :** Un agent qui s'assure que les conteneurs s'exécutent dans un Pod.
+- **Kube-proxy :** Gère le réseau des conteneurs, y compris l'équilibrage de charge.
+
+Il est courant de ne pas exécuter d'applications sur les nœuds qui exécutent les composants du maître, sauf dans le cas de petits clusters de développement.
+
+## Conclusion
+
+Comprendre l'architecture de Kubernetes est essentiel pour gérer efficacement les applications conteneurisées à grande échelle. Avec son architecture maître/nœud, Kubernetes offre une plateforme robuste et flexible pour déployer, échelonner et gérer vos applications dans un environnement de cloud.
+
+
+# 4- L'Architecture de Kubernetes #2 - côté maître (en détail)
+
+Explorons en détail les composants du maître Kubernetes pour comprendre leur rôle et leur fonctionnement au sein de l'architecture de Kubernetes, sans répéter les informations déjà fournies.
+
+### API Server
+
+Le serveur API agit comme la porte d'entrée pour toutes les opérations de gestion du cluster Kubernetes. C'est par ce canal que les requêtes sont envoyées, que ce soit pour créer de nouveaux pods, gérer les ressources existantes ou interroger l'état du système. Cette interface RESTful assure que les utilisateurs, les services internes de Kubernetes, et les composants externes peuvent communiquer de manière sécurisée et efficace. Le serveur API est conçu pour être l'unique point de convergence pour la logique d'orchestration, garantissant que toutes les modifications de l'état du cluster passent par un processus de validation et d'autorisation uniforme.
+
+### Scheduler
+
+Le planificateur, ou scheduler, est chargé de l'attribution des pods aux nœuds. Il analyse l'état actuel du cluster, y compris la consommation des ressources par chaque nœud, et prend des décisions éclairées sur l'endroit où déployer les nouveaux pods en fonction des exigences de ressources et des contraintes spécifiées. Ce processus assure une distribution optimale des charges de travail à travers le cluster, améliorant ainsi l'efficacité et la performance globale du système. Le scheduler peut être personnalisé pour répondre à des politiques de planification spécifiques, permettant aux administrateurs de prioriser certains types de charges de travail ou d'adapter le comportement du planificateur aux besoins de leur environnement.
+
+### Controller Manager
+
+Le gestionnaire de contrôleurs supervise une variété de contrôleurs qui régulent l'état désiré du cluster Kubernetes. Chaque contrôleur est responsable d'une facette particulière de l'état global du cluster, comme la gestion des réplicas de pods, la gestion des nœuds, ou la gestion des endpoints. En surveillant en continu l'état du cluster et en effectuant des ajustements selon les besoins, le Controller Manager joue un rôle clé dans l'auto-réparation et la gestion des configurations déclaratives. Cette composante assure que l'état réel du cluster correspond à l'état désiré spécifié par l'utilisateur, traitant les événements tels que les défaillances de nœuds ou les modifications de configuration.
+
+### etcd
+
+etcd est le stockage de données distribué qui sert de pierre angulaire pour la cohérence de l'état du cluster Kubernetes. En tant que base de données clé/valeur, etcd mémorise l'état de configuration, le statut, et les métadonnées essentielles de toutes les ressources Kubernetes. Grâce à sa haute disponibilité et sa tolérance aux pannes, etcd permet à Kubernetes de récupérer rapidement de défaillances du maître, en garantissant qu'aucune donnée essentielle n'est perdue et que l'état du cluster peut être restauré à un état cohérent. Le choix d'etcd comme magasin de données reflète l'importance de la fiabilité, de la performance, et de la cohérence des données dans la gestion des environnements distribués complexes.
+
+Chacun de ces composants joue un rôle crucial dans la gestion du cluster Kubernetes, travaillant ensemble pour offrir une plateforme robuste, évolutive et hautement disponible pour déployer et gérer des applications conteneurisées à grande échelle.
+
+
+# 5- L'Architecture de Kubernetes #3 - côté worker (en détail - 3 composants clés)
+
+Approfondissons le côté travailleur (worker) dans l'architecture Kubernetes, en mettant l'accent sur les composants essentiels qui facilitent l'exécution et la gestion des conteneurs au sein d'un nœud de travail.
+
+### Container Runtime
+
+Le moteur d'exécution de conteneurs est le fondement qui permet à Kubernetes de lancer et de gérer les conteneurs sur chaque nœud. Ce composant crée un environnement isolé pour chaque conteneur, s'occupant de l'exécution du code de l'application, de la gestion des ressources système attribuées (comme la CPU, la mémoire, et le stockage), et de l'isolation du réseau. Kubernetes est compatible avec plusieurs moteurs d'exécution de conteneurs, y compris Docker, containerd, et CRI-O, offrant aux utilisateurs la flexibilité de choisir la technologie qui convient le mieux à leurs besoins spécifiques. Cette couche d'abstraction assure que les applications s'exécutent de manière cohérente, indépendamment de l'environnement sous-jacent.
+
+### Kubelet
+
+Kubelet agit comme un agent sur chaque nœud, communiquant directement avec le serveur API du maître pour recevoir les instructions et envoyer des rapports d'état. Il s'assure que les conteneurs déployés dans les pods sont en cours d'exécution et en bonne santé, conformément aux spécifications définies dans les objets Pod. Si un conteneur échoue ou s'arrête, le Kubelet prend les mesures nécessaires pour redémarrer le conteneur et maintenir l'état désiré spécifié. En surveillant en permanence l'état des pods et en exécutant les actions requises, le Kubelet joue un rôle crucial dans l'auto-guérison et la gestion des tâches au niveau du nœud.
+
+### Kube-proxy
+
+Kube-proxy est un composant réseau clé qui s'exécute sur chaque nœud, facilitant la communication réseau à l'intérieur et à l'extérieur du cluster Kubernetes. Il gère l'accès aux services en redirigeant le trafic réseau vers les conteneurs appropriés, en utilisant des règles de routage IP et des ports. Kube-proxy permet ainsi d'équilibrer la charge entre plusieurs instances d'une application, améliorant la disponibilité et la performance des services. En manipulant les règles de réseau sur les nœuds, kube-proxy assure que la communication entre les conteneurs, ainsi que celle entre les conteneurs et l'extérieur du cluster, est fluide et sécurisée.
+
+Ces trois composants travaillent de concert pour garantir que les applications conteneurisées sur les nœuds de travail fonctionnent comme prévu. Ils offrent une couche d'orchestration qui prend en charge la gestion du cycle de vie des conteneurs, la mise en réseau, et la communication avec le reste du cluster. Ensemble, ils permettent à Kubernetes de fournir une plateforme résiliente, performante et facile à gérer pour déployer des applications à grande échelle.
 
