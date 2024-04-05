@@ -1,8 +1,4 @@
-Voici une traduction en français du texte donné, adaptée pour un public novice en incluant des explications détaillées :
-
----
-
-# Introduction
+# 1 - Introduction
 
 Dans cet atelier pratique, vous allez apprendre les concepts de base de Kubernetes. Vous y parviendrez en interagissant avec Kubernetes via les terminaux de commande à droite. En fin de compte, vous déployerez les applications d'exemple Dockercoins sur les deux nœuds de travail.
 
@@ -163,6 +159,4 @@ Avec un navigateur web, connectez-vous à node1 ici sur le port 8000 (créé lor
 
 Avant de continuer, éteignons tout en tapant Ctrl-C.
 
----
 
-J'espère que cette traduction et ces explications vous aideront à mieux comprendre le processus de démarrage et d'utilisation de Kubernetes à travers cet atelier !
