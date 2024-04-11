@@ -1,6 +1,6 @@
 # Tutoriel de Configuration d'un Cluster Kubernetes et Déploiement d'une Application
 
-# Référence : A8 - Services/4-pratique_servicesKubernutesVersionAnglaise.md
+### Référence : [A8 - Services/4-pratique_servicesKubernutesVersionAnglaise.md](https://github.com/hrhouma/kubernetes2/blob/main/A8%20-%20Services/4-pratique_servicesKubernutesVersionAnglaise.md)
 - Ce tutoriel vous guide à travers la création d'un cluster Kubernetes en utilisant Kind, le déploiement d'une application via des conteneurs Docker, et sa gestion à l'aide de `kubectl`.
 
 
