@@ -105,31 +105,35 @@ Ce tutoriel vous guide à travers la création d'un cluster Kubernetes en utilis
         ```
     - Pour ajouter des utilisateurs (répétez pour les 20 utilisateurs) :
         ```sh
-        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "1", "user":"Nom Utilisateur"}' http://$NODE_IP:$NODE_PORT/users/add
         curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "1", "user":"Alice Wonderland"}' http://$NODE_IP:$NODE_PORT/users/add
         curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "2", "user":"Bob Builder"}' http://$NODE_IP:$NODE_PORT/users/add
         curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "3", "user":"Charlie Chocolate"}' http://$NODE_IP:$NODE_PORT/users/add
         curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "4", "user":"Daisy Duck"}' http://$NODE_IP:$NODE_PORT/users/add
         curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "5", "user":"Evan Almighty"}' http://$NODE_IP:$NODE_PORT/users/add
         curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "6", "user":"Fiona Fair"}' http://$NODE_IP:$NODE_PORT/users/add
-curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "7", "user":"George Galaxy"}' http://$NODE_IP:$NODE_PORT/users/add
-curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "8", "user":"Hannah Horizon"}' http://$NODE_IP:$NODE_PORT/users/add
-curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "9", "user":"Ian Ice"}' http://$NODE_IP:$NODE_PORT/users/add
-curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "10", "user":"Jenny Jigsaw"}' http://$NODE_IP:$NODE_PORT/users/add
-curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "11", "user":"Kevin Key"}' http://$NODE_IP:$NODE_PORT/users/add
-curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "12", "user":"Lily Light"}' http://$NODE_IP:$NODE_PORT/users/add
-curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "13", "user":"Mike Mountain"}' http://$NODE_IP:$NODE_PORT/users/add
-curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "14", "user":"Nina Night"}' http://$NODE_IP:$NODE_PORT/users/add
-curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "15", "user":"Oscar Ocean"}' http://$NODE_IP:$NODE_PORT/users/add
-curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "16", "user":"Patty Prism"}' http://$NODE_IP:$NODE_PORT/users/add
-curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "17", "user":"Quincy Quest"}' http://$NODE_IP:$NODE_PORT/users/add
-curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "18", "user":"Randy Rainbow"}' http://$NODE_IP:$NODE_PORT/users/add
-curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "19", "user":"Sandy Storm"}' http://$NODE_IP:$NODE_PORT/users/add
-curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "20", "user":"Tommy Thunder"}' http://$NODE_IP:$NODE_PORT/users/add
+        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "7", "user":"George Galaxy"}' http://$NODE_IP:$NODE_PORT/users/add
+        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "8", "user":"Hannah Horizon"}' http://$NODE_IP:$NODE_PORT/users/add
+        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "9", "user":"Ian Ice"}' http://$NODE_IP:$NODE_PORT/users/add
+        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "10", "user":"Jenny Jigsaw"}' http://$NODE_IP:$NODE_PORT/users/add
+        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "11", "user":"Kevin Key"}' http://$NODE_IP:$NODE_PORT/users/add
+        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "12", "user":"Lily Light"}' http://$NODE_IP:$NODE_PORT/users/add
+        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "13", "user":"Mike Mountain"}' http://$NODE_IP:$NODE_PORT/users/add
+        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "14", "user":"Nina Night"}' http://$NODE_IP:$NODE_PORT/users/add
+        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "15", "user":"Oscar Ocean"}' http://$NODE_IP:$NODE_PORT/users/add
+        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "16", "user":"Patty Prism"}' http://$NODE_IP:$NODE_PORT/users/add
+        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "17", "user":"Quincy Quest"}' http://$NODE_IP:$NODE_PORT/users/add
+        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "18", "user":"Randy Rainbow"}' http://$NODE_IP:$NODE_PORT/users/add
+        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "19", "user":"Sandy Storm"}' http://$NODE_IP:$NODE_PORT/users/add
+        curl -i -H "Content-Type: application/json" -X POST -d '{"uid": "20", "user":"Tommy Thunder"}' http://$NODE_IP:$NODE_PORT/users/add
         ```
 3. **Récupérez un utilisateur spécifique**:
     ```sh
     curl http://$NODE_IP:$NODE_PORT/users/1
+    curl http://$NODE_IP:$NODE_PORT/users/2
+    curl http://$NODE_IP:$NODE_PORT/users/3
+    curl http://$NODE_IP:$NODE_PORT/users/4
+    ...
+    curl http://$NODE_IP:$NODE_PORT/users/20
     ```
 
 ## Étape 7: Nettoyage
