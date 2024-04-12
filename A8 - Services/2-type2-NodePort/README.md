@@ -4,14 +4,134 @@
 - Ce tutoriel vous guide à travers la création d'un cluster Kubernetes en utilisant Kind, le déploiement d'une application via des conteneurs Docker, et sa gestion à l'aide de `kubectl`.
 
 
+
+# 1. Installation de Docker et de Kubernetes avec Kind sur votre machine locale UBUNTU22.04
+
+Ce guide vous aidera à installer Docker et à configurer un cluster Kubernetes local en utilisant Kind. Ce processus comprend l'installation de Docker, Kind, et kubectl sur une machine avec une architecture AMD64 (x86_64) ou ARM64.
+
 ## Prérequis
 
+- Une machine sous Linux
+- Accès à un terminal
+- Droits d'administrateur (pour l'installation de packages)
+
+## Étapes d'installation
+
+### Installation de Docker
+
+1. Ouvrez un terminal.
+2. Naviguez vers le bureau avec `cd Desktop/`.
+3. Clonez le dépôt contenant les scripts d'installation de Docker :
+
+   ```bash
+   git clone https://github.com/hrhouma/install-docker.git
+   ```
+
+4. Installez Git si ce n'est pas déjà fait :
+
+   ```bash
+   apt install git
+   ```
+
+5. Entrez dans le dossier `install-docker` :
+
+   ```bash
+   cd install-docker/
+   ```
+
+6. Rendez le script exécutable et lancez-le :
+
+   ```bash
+   chmod +x install-docker.sh
+   ./install-docker.sh
+   ```
+
+### Installation de Kind
+
+7. Téléchargez la version appropriée de Kind selon l'architecture de votre machine :
+
+   - Pour AMD64 / x86_64 :
+
+     ```bash
+     [ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.22.0/kind-linux-amd64
+     ```
+
+   - Pour ARM64 :
+
+     ```bash
+     [ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.22.0/kind-linux-arm64
+     ```
+
+8. Rendez le fichier `kind` exécutable et déplacez-le dans un répertoire accessible globalement :
+
+   ```bash
+   chmod +x ./kind
+   sudo mv ./kind /usr/local/bin/kind
+   ```
+
+9. Créez un cluster Kubernetes avec Kind :
+
+   ```bash
+   kind create cluster
+   ```
+
+### Installation de kubectl
+
+10. Installez `kubectl` pour interagir avec votre cluster Kubernetes :
+
+    ```bash
+    sudo apt-get install ca-certificates
+    curl -LO -k "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    chmod +x kubectl
+    mv kubectl /usr/local/bin/
+    ```
+
+11. Vérifiez la configuration de `kubectl` :
+
+    ```bash
+    kubectl config get-contexts
+    ```
+
+12. (Optionnel) Pour configurer un cluster avec un fichier de configuration spécifique :
+
+ ```bash
+nano kind-config.yaml
+ ```
+
+```yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+- role: worker
+- role: worker
+```
+
+```bash
+kind create cluster --config kind-config.yaml
+ ```
+
+13. Pour obtenir des informations sur le cluster :
+
+    ```bash
+    kubectl cluster-info --context kind-kind
+    ```
+
+
+
+
+
+
+
+
+
+
+# 2. Étape 2: Configuration du Cluster Kubernetes avec Kind
+## Prérequis
 - Docker installé et en cours d'exécution
 - `kubectl` installé
 - Kind installé
 - Git installé
-
-## Étape 1: Configuration du Cluster Kubernetes avec Kind
 
 1. **Créez un nouveau fichier de configuration pour Kind**:
     ```sh
