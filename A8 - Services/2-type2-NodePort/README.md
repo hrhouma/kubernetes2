@@ -69,15 +69,9 @@ Ce guide vous aidera à installer Docker et à configurer un cluster Kubernetes 
    sudo mv ./kind /usr/local/bin/kind
    ```
 
-9. Créez un cluster Kubernetes avec Kind :
-
-   ```bash
-   kind create cluster
-   ```
-
 ### Installation de kubectl
 
-10. Installez `kubectl` pour interagir avec votre cluster Kubernetes :
+9. Installez `kubectl` pour interagir avec votre cluster Kubernetes :
 
     ```bash
     sudo apt-get install ca-certificates
@@ -86,13 +80,13 @@ Ce guide vous aidera à installer Docker et à configurer un cluster Kubernetes 
     mv kubectl /usr/local/bin/
     ```
 
-11. Vérifiez la configuration de `kubectl` :
+10. Vérifiez la configuration de `kubectl` :
 
     ```bash
     kubectl config get-contexts
     ```
 
-12. (Optionnel) Pour configurer un cluster avec un fichier de configuration spécifique :
+11. (Optionnel) Pour configurer un cluster avec un fichier de configuration spécifique :
 
  ```bash
 nano kind-config.yaml
@@ -111,19 +105,11 @@ nodes:
 kind create cluster --config kind-config.yaml
  ```
 
-13. Pour obtenir des informations sur le cluster :
+12. Pour obtenir des informations sur le cluster :
 
     ```bash
     kubectl cluster-info --context kind-kind
     ```
-
-
-
-
-
-
-
-
 
 
 # 2. Étape 2: Configuration du Cluster Kubernetes avec Kind
