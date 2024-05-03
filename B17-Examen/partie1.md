@@ -1,4 +1,5 @@
 # Lecture # 1 avant de faire le QUIZ 
+## Lien : https://forms.office.com/r/1sbRXnhQKC
 
 - Avant de passer au quiz, laissez-moi vous guider à travers un tour rapide de Kubernetes.
 - Kubernetes est une plateforme open-source pour automatiser le déploiement, la mise à l'échelle et la gestion des applications conteneurisées.
